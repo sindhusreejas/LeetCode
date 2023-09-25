@@ -1,0 +1,13 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        str1 = ["I","V","X","L","C","D","M"]
+        nums = [1,5,10,50,100,500,1000]
+        res = {str1[i]:nums[i] for i in range(len(str1))}
+        sum=0;
+        for i in range(len(s)):
+            if(i<len(s)-1 and res[s[i]]<res[s[i+1]]):
+                sum = sum- res[s[i]]
+            else:
+                sum = sum+res[s[i]]
+        return sum
+        
